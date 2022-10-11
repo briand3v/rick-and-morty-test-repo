@@ -12,9 +12,31 @@
     "forceConsistentCasingInFileNames": true,  
     "useUnknownInCatchVariables": true,
     "paths": {
+      "@application/*": [
+        "src/application/*"
+      ],
+      "@config/*": [
+        "src/config/*"
+      ],
+      "@core/*": [
+        "src/core/*"
+      ],
+      "@domain/*": [
+        "src/domain/*"
+      ],
+      "@infrastructure/*": [
+        "infrastructure/*"
+      ],
+      "@interfaces/*": [
+        "interfaces/*"
+      ],
+      "@constants/*": [
+        "src/constants/*"
+      ]
     }
   },
   "include": [
+    "src/**/*.ts",
   ],
   "exclude": [
   ]

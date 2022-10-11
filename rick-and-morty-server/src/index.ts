@@ -1,11 +1,9 @@
-const express = require('express')
-const app = express()
-const port = 3000
+import 'module-alias/register';
+import * as dotenv from 'dotenv';
+dotenv.config();
+import 'reflect-metadata';
+import { initialise } from './initialise';
 
-app.get('/', (req, res) => {
-    res.send('working!')
-})
-
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+(async () => {
+    await initialise();
+})();

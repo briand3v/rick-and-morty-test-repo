@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+    web:
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "3000:3000"
+        volumes:
+            - .:/opt/app
+            - /opt/app/node_modules
+            - ./nodemon.json:/opt/app/nodemon.json
+        container_name: web
+        command: npm run dev
+        links:
+            - mongo-db
+    mongo-db:
+        image: mongo
+        ports:
+            - "27017:27017"
+        container_name: mongo-db
+        volumes:
+            - ./db:/data/db
