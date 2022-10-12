@@ -24,6 +24,7 @@
     "@config": "dist/config",
     "@constants": "dist/constants",
     "@domain": "dist/domain",
+    "@errors": "dist/errors",
     "@application": "dist/application",
     "@infrastructure": "dist/infrastructure",
     "@interfaces": "dist/interfaces"

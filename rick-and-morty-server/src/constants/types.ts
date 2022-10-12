@@ -11,4 +11,10 @@ export const TYPES = {
     // application services
     AuthApplication: Symbol('AuthApplication'),
     UserApplication: Symbol('UserApplication'),
+
+    // handlers
+    AuthenticationHandler: Symbol('AuthenticationHandler'),
+
+    // JWT TOKEN
+    JWTToken: Symbol('JWTToken'),
 };

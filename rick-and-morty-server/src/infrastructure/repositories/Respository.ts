@@ -31,17 +31,18 @@ export class Repository<TDomainEntity>
     }
 
     async doesExists(guid: string): Promise<boolean> {
-        const dbResult = await this.collectionInstance.findOne({ guid });
+        const dbResult = await this.collectionInstance.findOne({ _id: guid });
         return !!dbResult;
     }
 
     async save(entity: TDomainEntity): Promise<any> {
-        const guid = (entity as any).guid;
+        const guid = (entity as any)._id.toString();
         const exists = await this.doesExists(guid);
+        const toPersistence = await this.dataMapper.toDalEntity(entity);
         if (!exists) {
-            return await this.collectionInstance.insertOne(this.dataMapper.toDalEntity(entity));
+            return await this.collectionInstance.insertOne(toPersistence);
         }
-        return await this.collectionInstance.replaceOne({ guid }, this.dataMapper.toDalEntity(entity));
+        return await this.collectionInstance.replaceOne({ _id: guid }, toPersistence);
     }
 
     async delete(id: string): Promise<void> {

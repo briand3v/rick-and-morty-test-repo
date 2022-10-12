@@ -3,6 +3,7 @@ import { IDataMapper } from "@core/IDataMapper";
 import { AddUserRepositoryRequest } from "@domain/user/AddUserRepositoryRequest";
 import { IUserRepository } from "@domain/user/IUserRepository";
 import { User } from "@domain/user/User";
+import { UserPassword } from "@domain/user/UserPassword";
 import { inject } from "inversify";
 import { Db } from "mongodb";
 import { Repository } from "./Respository";
@@ -28,8 +29,9 @@ export class UserRepository extends Repository<User>
         email,
         password,
     }: AddUserRepositoryRequest): Promise<User> {
-        const user = User.create({ userName, email, password });
-        const savedUser = await this.save(user);
+        const passwordValueObject = UserPassword.create({ value: password });
+        const user = User.create({ userName, email, password: passwordValueObject });
+        const savedUser: User = await this.save(user);
         return savedUser;
     }
 }

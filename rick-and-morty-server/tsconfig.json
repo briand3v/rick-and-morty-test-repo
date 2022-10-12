@@ -21,6 +21,9 @@
       "@core/*": [
         "src/core/*"
       ],
+      "@errors/*": [
+        "src/errors/*"
+      ],
       "@domain/*": [
         "src/domain/*"
       ],

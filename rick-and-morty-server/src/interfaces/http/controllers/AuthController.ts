@@ -10,12 +10,17 @@ import { AuthApplication } from '@application/auth/AuthApplication';
 import { TYPES } from '@constants/types';
 import { SignUpRequestBody } from './requests/SignUpRequestBody';
 import { SignUpRequest } from './requests/SignUpRequest';
+import { AuthenticationRequestBody } from './requests/AuthenticateRequestBody';
+import { IAuthenticationHandler } from '@core/IAuthenticationHandler';
+import { AuthRequest } from '@application/auth/requests/AuthRequest';
 
 @controller('/api/v1/auth')
 export class AuthController extends BaseHttpController {
     constructor(
         @inject(TYPES.AuthApplication)
         private readonly service: AuthApplication,
+        @inject(TYPES.AuthenticationHandler)
+        private readonly authHandler: IAuthenticationHandler,
     ) { super(); }
 
     @httpPost('/signup')
@@ -28,4 +33,15 @@ export class AuthController extends BaseHttpController {
         );
         return this.json(user);
     }
+
+    @httpPost('/login')
+    public async signIn(
+        @requestBody() { email, password }: AuthenticationRequestBody,
+    ): Promise<results.JsonResult> {
+        const authenticate = await this.authHandler.authenticate(
+            new AuthRequest(email, password),
+        );
+        return this.json(authenticate.token);
+    }
+    
 }

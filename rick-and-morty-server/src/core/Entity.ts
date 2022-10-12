@@ -1,9 +1,9 @@
-import { v4 as UUID } from 'uuid';
+import { UniqueEntityID } from './UniqueEntityID';
 
 export abstract class Entity<TInitProps> {
-    public readonly guid: string;
+    protected readonly _id: UniqueEntityID;
 
-    constructor(guid?: string) {
-        this.guid = guid || UUID();
+    constructor(id?: UniqueEntityID) {
+        this._id = id ? id : new UniqueEntityID();
     }
 }
