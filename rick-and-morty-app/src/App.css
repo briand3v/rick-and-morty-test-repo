@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  color: #fff;
+}
+
+main {
+  width: 100%;
+}
+
 .App {
   text-align: center;
 }
@@ -11,6 +26,31 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+input {
+  font-family: 'Cabin',
+    sans-serif;
+  font-weight: 500;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: 1;
+  font-family: 'Cabin', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #c6c4c4;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #c6c4c4;
 }
 
 .App-header {
@@ -32,7 +72,332 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.section-title {
+  font-size: 2.5em;
+  font-family: 'Poppins',
+    sans-serif;
+  font-weight: 700;
+  text-align: start;
+  line-height: 1.4em;
+  z-index: 100;
+  color: #252525;
+}
+
+.section-title:first-child {
+  margin-top: 80px;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  line-height: 1.6em;
+  font-family: 'Poppins',
+    sans-serif;
+  font-weight: 600;
+  text-align: start;
+  color: #fff;
+}
+
+.mockup-quote-editable-1 {
+  position: absolute;
+  top: 20px;
+  left: -150px;
+  transform: rotate(-15deg);
+  z-index: 0;
+}
+
+.container-section-layer {
+  display: flex;
+  width: 100%;
+  max-width: calc(100vw - 30%);
+}
+
+.container-section-layer .row {
+  flex: 0.5;
+}
+
+.content-center {
+  justify-content: center !important;
+}
+
+.designs-section-custom {
+  height: calc(100vh) !important;
+}
+
+.section-content .section-content-flex-style {
+  width: 100%;
+  height: 100%;
+}
+
+.section-content .section-content-flex-style .main-title-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.main-content-section {
+  display: flex;
+}
+
+.main-content-section .row-1 {
+  flex: 0.5;
+  padding: 30px;
+}
+
+.main-content-section .row-2 .section-description {
+  text-align: left;
+}
+
+.main-content-section .row-2 {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.button-custom-main {
+  position: relative;
+}
+
+.button-custom-main:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.164);
+  transition: all 0.3s ease-in-out;
+}
+
+.button-custom-main .arrow-right-button {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  transition: all 0.5s ease-in-out;
+}
+
+.button-custom-main:hover .arrow-right-button {
+  right: 16px;
+  transition: all 0.5s ease-in-out;
+}
+
+
+.flex-9 {
+  flex: 0.9;
+}
+
+/* form styles */
+.group-form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.group-form-checks {
+  height: 100px;
+  opacity: 0;
+  transition: 0.7s ease-in-out all;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 70px;
+}
+
+.group-form-checks.show {
+  opacity: 1;
+  transition: 0.7s ease-in-out all;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.card-test-main {
+  position: relative
+}
+
+.card-test {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+  background: red;
+}
+
+.card-test-popup {
+  top: 220px;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: blue;
+  opacity: 0;
+  transition: 0.7s ease-in-out all;
+  margin-bottom: 20px;
+}
+
+.card-test-popup p {
+  color: #fff;
+}
+
+.card-test-popup.toggle-popup {
+  opacity: 1;
+  transition: 0.7s ease-in-out all;
+}
+
+.cards-slide-down {
+  transform: translateY(0);
+  transition: 0.6s ease-in-out all;
+}
+
+.cards-slide-down.toggle {
+  transform: translateY(220px);
+  transition: 0.8s ease-in-out all;
+}
+
+.sign-up-container-left {
+  opacity: 0;
+  transition: 0.8s ease-in-out all;
+  height: 90%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-up-container-left.show {
+  opacity: 1;
+  transition: 0.8s ease-in-out all;
+}
+
+.sign-up-container-right {
+  position: relative;
+  opacity: 0;
+  transform: translateX(500px);
+  transition: 0.8s ease-in-out all;
+  width: 50%;
+  height: 90%;
+  background-color: #fff;
+  border-radius: 15px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-up-container-right.show {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: 0.6s ease-in-out all;
+}
+
+.overlay-main {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #1b1b1b45;
+  border-radius: 15px;
+  z-index: 0;
+}
+
+.no-overlap {
+  z-index: 100;
+}
+
+.input-check {
+  opacity: 0;
+  transition: 0.4s ease-in-out all;
+}
+
+input:focus {
+  outline: 0;
+}
+
+.input-check.show {
+  opacity: 1;
+  transition: 0.4s ease-in-out all;
+}
+
+.username-form.success,
+.email-form.success,
+.password-form.success,
+.confirm-password-form.success {
+  color: #29b629 !important;
+}
+
+.group-form-checks-username p,
+.group-form-checks-password p,
+.group-form-checks-confirm-password p,
+.group-form-checks-email p {
+  font-family: 'Cabin', sans-serif;
+  font-weight: 500;
+  margin: 0px 0px;
+  color: red;
+}
+
+.group-form-checks-username,
+.group-form-checks-email,
+.group-form-checks-password,
+.group-form-checks-confirm-password {
+  opacity: 0;
+  transition: 0.4s ease-in-out all;
+}
+
+.group-form-checks-username.show,
+.group-form-checks-email.show,
+.group-form-checks-password.show,
+.group-form-checks-confirm-password.show {
+  opacity: 1;
+  transition: 0.4s ease-in-out all;
+}
+
+.submit-sign-in {
+  height: 50px;
+  margin-top: 20px;
+  padding: 0 2em;
+}
+
+.submit-sign-in .button-custom-main {
+  font-weight: 700;
+}
+
+.submit-sign-in .button-custom-main .arrow-right-button {
+  top: 18px;
+}
+
+.view-switch-login {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-switch-login p:first-child {
+  margin-right: 20px;
+}
+
+.group-form-input {
+  height: 240px;
+}
+
+.custom-link-primary {
+  color: #1bd262 !important;
+  font-weight: 700;
+}
+
+.custom-link-primary:hover {
+  cursor: pointer;
+}
+
+.avatar-login {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }

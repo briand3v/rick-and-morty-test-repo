@@ -1,10 +1,11 @@
 import React from 'react';
+import { SpanTextStyled } from '../../../styled/components/text';
 
 const Navbar = () => {
     return (
-        <div>
-            Hello app running!
-        </div>
+        <SpanTextStyled variant="primary">
+            Rick and morty awesome app
+        </SpanTextStyled>
     )
 }
 
