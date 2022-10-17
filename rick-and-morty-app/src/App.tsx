@@ -7,7 +7,9 @@ import {
 } from "react-router-dom";
 import AuthenticationPage from './pages/Authentication/AuthenticationPage';
 import Layout from './layout';
-import RickAndMortyPage from './pages/home/RickAndMortyPage';
+import ShowCharacters from './pages/home/ShowCharactersPage';
+import ProtectedRoute from './router/ProtectedRoute';
+import NotFound from './pages/NotFound';
 
 const App: React.FC = () => {
   return (
@@ -17,7 +19,12 @@ const App: React.FC = () => {
           <Layout>
             <Routes>
               <Route path="/signin" element={<AuthenticationPage />} />
-              <Route path="/home" element={<RickAndMortyPage />} />
+              <Route path="/" element={
+                <ProtectedRoute>
+                  <ShowCharacters />
+                </ProtectedRoute>
+              } />
+              <Route path='*' element={<NotFound />} />
             </Routes>
           </Layout>
         </div>

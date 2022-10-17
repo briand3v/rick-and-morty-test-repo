@@ -1,0 +1,85 @@
+.header-style {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.header-style p {
+    text-align: left;
+    line-height: 1.4em;
+}
+
+.card-custom .body {
+    height: 100%;
+}
+
+.card-custom .body {
+    display: flex;
+}
+
+.card-custom .body .character-image img {
+    width: 200px;
+    height: 100%;
+    border-radius: 15px 0 0 15px;
+}
+
+.card-custom .body .character-data {
+    width: 100%;
+}
+
+.card-custom .body .character-data .character-data-principal {
+    margin-top: 30px;
+}
+
+.card-custom .body .character-data .character-data-principal span {
+    font-size: 1.2em;
+    font-weight: 700;
+    line-height: 1.4em;
+}
+
+.card-custom .body .character-data .character-data-principal span.character-name {
+    position: relative;
+}
+
+.card-custom .body .character-data .character-data-principal span.character-name:hover {
+    color: #30f330;
+    cursor: pointer;
+}
+
+.card-custom .body .character-data .character-data-principal span.character-name::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: -20px;
+    background-color: #30f330;
+    border-radius: 50%;
+    top: 5px;
+}
+
+.card-custom .body .character-data .character-data-origin {
+    margin-top: 30px;
+}
+
+.card-custom .body .character-data .character-data-origin span {
+    font-size: .8em;
+    font-weight: 700;
+    line-height: 1.4em;
+}
+
+.card-custom .footer {
+    position: relative;
+    height: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 16px;
+    padding-top: 10px;
+}
+
+.card-custom .footer .footer-part-2 {
+    display: flex;
+    align-items: flex-start;
+}

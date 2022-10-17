@@ -1,12 +1,13 @@
 import React from 'react';
 import { ButtonPrimary } from '../styled/components/button';
 
-interface props {
-    textContent: string
-    variantName?: any
-    borderRadius?: number | string
-    fontSize?: string | number
-    clickHandle?: any
+interface ButtonProps {
+    textContent: string;
+    variantName?: any;
+    borderRadius?: number | string;
+    fontSize?: string | number;
+    clickHandle?: any;
+    disabled?: boolean
 }
 
 const Button = ({
@@ -14,19 +15,20 @@ const Button = ({
     variantName,
     borderRadius,
     fontSize,
-    clickHandle
-}: props) => {
+    clickHandle,
+    disabled
+}: ButtonProps) => {
     const variantStyle = variantName ?? 'primary';
     return (
         <ButtonPrimary
-            className="button-custom-main"
+            className={"button-custom-main" + (disabled ? ' disabled': '')}
             variant={variantStyle}
             borderRadius={borderRadius}
             fontSize={fontSize}
             onclick={clickHandle}
+            disabled={disabled}
         >
             {textContent}
-            {/* <img alt="arrow-right-button" src={require('../assets/icons/arrow-right-button.png')} height={15} className="arrow-right-button" /> */}
         </ButtonPrimary>
     )
 }

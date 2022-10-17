@@ -1,5 +1,5 @@
 export type SignUpRequestBody = {
-    readonly userName: string;
+    readonly username: string;
     readonly email: string;
     readonly password: string;
 }

@@ -1,3 +1,4 @@
 export const HTTP_STATUS_CODES = {
     UNAUTHORIZED: 401,
+    NOT_FOUND: 404,
 }

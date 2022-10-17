@@ -1,13 +1,16 @@
-import { HTTP_STATUS_CODES } from "@config/codes";
 import { TYPES } from "@constants/types";
-import { APP_TOKEN_LIFE, APP_TOKEN_SECRET } from "@constants/variables";
+import { 
+    APP_REFRESH_TOKEN_LIFE,
+    APP_TOKEN_LIFE,
+} from "@constants/variables";
+import config from '@config/main';
 import { IAuthenticationHandler } from "@core/IAuthenticationHandler";
 import { inject, injectable } from "inversify";
-import { UserInterfaceError } from "@errors/UserInterfaceError";
 import { AuthApplication } from "./AuthApplication";
 import { Authentication } from "./Authentication";
 import { JWTTokenUtil } from "./JWTTokenUtil";
 import { AuthenticationRequest } from "./requests/AuthenticationRequest";
+import { JWTAccessTokenRequest } from "./requests/JWTAccessTokenRequest";
 
 const PAYLOAD_KEY = 'user';
 
@@ -21,20 +24,28 @@ export class JWTAuthenticationHandler implements IAuthenticationHandler {
     ) { }
 
     async authenticate(request: AuthenticationRequest) {
-        const user = await this.authApplication.verifyCredentials(request);        
-        if (!user) {
-            throw new UserInterfaceError(
-                HTTP_STATUS_CODES.UNAUTHORIZED,
-            );
-        }
-
+        const user = await this.authApplication.verifyCredentials(request);
         return new Authentication(
             this.jwtTokenUtil.generateToken(
-                user.userId,
-                APP_TOKEN_SECRET,
+                user.id,
+                config.accessTokenPrivateKey,
                 APP_TOKEN_LIFE,
                 PAYLOAD_KEY,
             ),
+            this.jwtTokenUtil.generateToken(
+                user.id,
+                config.refreshTokenPrivateKey,
+                APP_REFRESH_TOKEN_LIFE,
+                PAYLOAD_KEY,
+            ),
         );
+    }
+
+    async verifyAccessToken(request: JWTAccessTokenRequest) {
+        return new Promise((resolve, reject) => {
+            const token = this.jwtTokenUtil.decodeToken(request.token, request.key);
+            if (!token) reject(null);
+            resolve(token);
+        })
     }
 }

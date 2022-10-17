@@ -9,23 +9,20 @@ interface Props {
     paddingRight?: number
     direction?: string
     backgroundColor?: string
-    borderRadius?: number | string
+    borderRadius?: number
     inclination?: string
-    backgroundImage?: NodeRequire
+    backgroundImage?: NodeRequire | string
     backgroundPosition?: string
     justifyContent?: string
-    fontSize?: string | number
+    alignItems?: string
+    mobileDisplay?: string
     ref?: any
     width?: number
     height?: number
-    onclick?: any
 }
 
-export const ButtonWrapper: React.FC<Props> = ({ className, children, onclick }) => {
+export const PageItemWrapper: React.FC<Props> = ({ className, children }) => {
     return (
-        <button
-            className={className}
-            onClick={onclick}
-        >{children}</button>
+        <div className={className}>{children}</div>
     )
 }

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { ButtonWrapper } from '../../helper/ButtonWrapper';
-import { LinkWrapper } from '../../helper/LinkWrapper';
+import { ButtonWrapper } from '../../helper/wrappers/ButtonWrapper';
+import { LinkWrapper } from '../../helper/wrappers/LinkWrapper';
 import { buttonColorsVariants, buttonBackgroundColorsVariants, textColorVariants, buttonBackgroundColor } from '../styles';
 
 
@@ -11,7 +11,7 @@ export const ButtonPrimary = styled(ButtonWrapper)`
     font-size: ${(props: any) => props.fontSize ? props.fontSize + 'px' : '16px'};
     border-radius: ${(props: any) => props.borderRadius ? props.borderRadius + 'px' : '5px'};
     background-color: ${buttonBackgroundColorsVariants};
-    background-image: ${(props: any) => 'url(' + props.backgroundImage + ')' ?? ''};
+    background-image: ${(props: any) => 'url(' + props.backgroundImage + ')' ?? '#3c3e44'};
     background-size: cover;
     padding: 10px 20px;
     border: none;

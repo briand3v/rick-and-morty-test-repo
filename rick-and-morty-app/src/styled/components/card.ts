@@ -1,18 +1,18 @@
 import styled from 'styled-components';
-import { containerStylesVariants, textColorVariants } from '../styles';
-import { PageItemWrapper as ContainerWrapper } from '../../helper/ContentWrapper';
+import { containerStylesVariants, textColorVariants, deviceMax } from '../styles';
+import { PageItemWrapper as ContainerWrapper } from '../../helper/wrappers/ContentWrapper';
 
 export const CardPrimary = styled(ContainerWrapper)`
-    width: 100%;
-    height: 100%;
-    border-radius: ${(props: any) => props.borderRadius ? props.borderRadius + 'px' : '5px'};
-    background-color: ${(props: any) => props.backgroundColor ?? '#fff'};
-    background-image: ${(props: any) => 'url(' + props.backgroundImage + ')' ?? ''};
-    background-size: contain;
-    background-repeat: no-repeat;
-    transform: ${(props: any) => props.inclination === 'right' ? 'rotate(0deg)' : 'rotate(0deg)'};
-    background-position: center center;
-    position: relative;
+    width: 420px;
+    margin: 12px 12px;
+    border-radius: ${(props: any) => props.borderRadius ? props.borderRadius + 'px' : '15px'};
+    background-color: ${containerStylesVariants};
+    --tw-border-opacity: 1;
+    border-style: solid;
+    @media only screen and ${deviceMax.mobileL} {
+        width: 100%;
+        height: 199px;
+    }
 `;
 
 export const CardProfile = styled(ContainerWrapper)`

@@ -5,23 +5,29 @@ interface Props {
     className?: string
     children?: React.ReactNode
     padding?: number
+    disabled?: boolean
     paddingLeft?: number
     paddingRight?: number
     direction?: string
     backgroundColor?: string
-    borderRadius?: number
+    borderRadius?: number | string
     inclination?: string
-    backgroundImage?: NodeRequire | string
+    backgroundImage?: NodeRequire
     backgroundPosition?: string
     justifyContent?: string
-    alignItems?: string
+    fontSize?: string | number
     ref?: any
     width?: number
     height?: number
+    onclick?: any
 }
 
-export const PageItemWrapper: React.FC<Props> = ({ className, children }) => {
+export const ButtonWrapper: React.FC<Props> = ({ className, children, onclick, disabled}) => {
     return (
-        <div className={className}>{children}</div>
+        <button
+            disabled={disabled}
+            className={className}
+            onClick={onclick}
+        >{children}</button>
     )
 }

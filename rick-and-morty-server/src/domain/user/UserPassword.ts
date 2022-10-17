@@ -1,4 +1,4 @@
-import { ValueObject } from "@core/ValueObject";
+import { ValueObject } from "@core/domain/ValueObject";
 import bcrypt from 'bcrypt';
 
 export interface IUserPasswordProps {

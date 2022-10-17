@@ -6,6 +6,7 @@ interface Props {
     valueInput?: string
     onChange: any
     onFocus?: any
+    refInput?: any
     placeholderInput?: string
     typeInput?: string
     padding?: number
@@ -21,9 +22,10 @@ interface Props {
     height?: number
 }
 
-export const InputWrapper: React.FC<Props> = ({ className, valueInput, onChange, onFocus, placeholderInput, typeInput }) => {
+export const InputWrapper: React.FC<Props> = ({ refInput, className, valueInput, onChange, onFocus, placeholderInput, typeInput }) => {
     return (
         <input
+            ref={refInput}
             className={className}
             value={valueInput}
             data-type={typeInput}

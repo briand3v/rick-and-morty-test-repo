@@ -1,35 +1,14 @@
 ## About
 
-## Available Scripts
+· Typescript
+· Nodejs
+· Expressjs (nodejs framework)
+· Inversify (Use it for better manage about container that uses a class constructor to identify and inject its dependencies)
+· MongoDB (relational database)
+· mongoose orm 
+· docker
 
+#### Command to run server:
+
+### `start:dev:db`
 ### `npm run dev`
-
-Run the server in development mode.
-
-### `npm test`
-
-Run all unit-tests with hot-reloading.
-
-### `npm test -- --testFile="name of test file" (i.e. --testFile=Users).`
-
-Run a single unit-test.
-
-### `npm run test:no-reloading`
-
-Run all unit-tests without hot-reloading.
-
-### `npm run lint`
-
-Check for linting errors.
-
-### `npm run build`
-
-Build the project for production.
-
-### `npm start`
-
-Run the production build (Must be built first).
-
-### `npm start -- --env="name of env file" (default is production).`
-
-Run production build with a different env file.

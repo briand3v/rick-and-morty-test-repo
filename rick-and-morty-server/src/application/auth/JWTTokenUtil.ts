@@ -1,8 +1,6 @@
 import { IncomingHttpHeaders } from 'http';
-
 import jwt, { Secret } from 'jsonwebtoken';
 import { injectable } from 'inversify';
-import { APP_TOKEN_SECRET } from '@constants/variables';
 
 @injectable()
 export class JWTTokenUtil {
@@ -14,20 +12,28 @@ export class JWTTokenUtil {
 
     generateToken(
         payload: any,
-        secret: Secret,
+        secret: any,
         expiresIn: string | number,
         payloadKey?: string,
     ): string {
-        return jwt.sign(payloadKey ? { [payloadKey]: payload } : payload, secret, {
-            expiresIn,
+        const privateKey = this.generatePrivateKey(secret);
+        return jwt.sign(payloadKey ? { [payloadKey]: payload } : payload, privateKey, {
+            expiresIn: expiresIn,
+            algorithm: 'HS384',
         });
     }
 
-    decodeToken<R extends object | string | null>(token: string): R {
+    generatePrivateKey(secret: any) {
+        return Buffer.from(secret, 'base64').toString('ascii');
+    }
+
+    decodeToken<R extends object | string | null>(token: string, secretKey: string): R {
         try {
-            return jwt.verify(token, APP_TOKEN_SECRET) as R;
+            const publicKey = this.generatePrivateKey(secretKey);
+            const jwtoken = jwt.verify(token, publicKey) as R;
+            return jwtoken;
         // eslint-disable-next-line node/no-unsupported-features/es-syntax
-        } catch {
+        } catch(err) {
             return null as R;
         }
     }

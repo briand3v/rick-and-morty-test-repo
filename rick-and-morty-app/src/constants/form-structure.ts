@@ -1,3 +1,4 @@
+import { object, string, TypeOf } from "zod";
 
 export const FormStructure = {
     currentTyping: 'username',
@@ -32,7 +33,7 @@ export const FormStructure = {
         },
         {
             key: 'passwordspecialcharacter',
-            label: '* Lowercase (a-z) and uppercase (A-Z)',
+            label: '* At least one special character, @...',
             validate: true,
             show: false
         }
@@ -46,3 +47,28 @@ export const FormStructure = {
         }
     ]
 }
+
+export const RegisterInputSchema = object({
+    username: string().min(1, 'Full name is required').max(100),
+    email: string()
+        .min(1, 'Email address is required')
+        .email('Email Address is invalid'),
+    password: string()
+        .min(1, 'Password is required')
+        .min(8, 'Password must be more than 8 characters')
+        .max(32, 'Password must be less than 32 characters'),
+});
+
+export const loginSchema = object({
+    email: string()
+        .min(1, 'Email address is required')
+        .email('Email Address is invalid'),
+    password: string()
+        .min(1, 'Password is required')
+        .min(4, 'Password must be more than 8 characters')
+        .max(32, 'Password must be less than 32 characters'),
+});
+
+export type RegisterInput = TypeOf<typeof RegisterInputSchema>
+
+export type LoginInput = TypeOf<typeof loginSchema>

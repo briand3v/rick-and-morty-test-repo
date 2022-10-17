@@ -19,7 +19,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
     const body = <>
         <QueryClientProvider client={queryClient}>
-            <ThemeProvider theme={{ mode: isDarkMode ? 'light' : 'light' }}>
+            <ThemeProvider theme={{ mode: isDarkMode ? 'dark' : 'light' }}>
                 <Navbar />
                 <main>{children}</main>
             </ThemeProvider>

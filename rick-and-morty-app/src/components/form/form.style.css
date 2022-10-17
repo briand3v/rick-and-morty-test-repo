@@ -1,0 +1,75 @@
+.input-check {
+    opacity: 0;
+    transition: 0.4s ease-in-out all;
+}
+
+input:focus {
+    outline: 0;
+}
+
+.input-check.show {
+    opacity: 1;
+    transition: 0.4s ease-in-out all;
+}
+
+.username-form.success,
+.email-form.success,
+.password-form.success,
+.confirm-password-form.success {
+    color: #29b629 !important;
+}
+
+.group-form-checks-username p,
+.group-form-checks-password p,
+.group-form-checks-confirm-password p,
+.group-form-checks-email p {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 500;
+    margin: 0px 0px;
+    color: red;
+}
+
+.group-form-checks-username,
+.group-form-checks-email,
+.group-form-checks-password,
+.group-form-checks-confirm-password {
+    opacity: 0;
+    transition: 0.4s ease-in-out all;
+}
+
+.group-form-checks-username.show,
+.group-form-checks-email.show,
+.group-form-checks-password.show,
+.group-form-checks-confirm-password.show {
+    opacity: 1;
+    transition: 0.4s ease-in-out all;
+}
+
+.submit-sign-in {
+    height: 50px;
+    margin-top: 20px;
+    padding: 0 2em;
+}
+
+.submit-sign-in .button-custom-main {
+    font-weight: 700;
+}
+
+.submit-sign-in .button-custom-main .arrow-right-button {
+    top: 18px;
+}
+
+.view-switch-login {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-switch-login p:first-child {
+    margin-right: 20px;
+}
+
+.group-form-input {
+    height: 240px;
+}

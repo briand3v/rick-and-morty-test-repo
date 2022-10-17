@@ -1,28 +1,17 @@
-import { Entity } from "@core/Entity";
-import { IAggregateRoot } from "@core/IAggregateRoot";
-import { UniqueEntityID } from "@core/UniqueEntityID";
+import { AggregateRoot } from "@core/domain/AgregateRoot";
+import { UniqueEntityID } from "@core/domain/UniqueEntityID";
 import { UserPassword } from "./UserPassword";
 
 export interface IUserProps {
     userName: string;
     email: string;
-    password?: UserPassword | null;
+    password: UserPassword;
 }
 
-export class User extends Entity<IUserProps> implements IAggregateRoot {
-    private _userName: string;
-    private _email: string;
-    private _password: UserPassword | null;
+export class User extends AggregateRoot<IUserProps> {
 
-    constructor({
-        userName,
-        email,
-        password,
-    }: IUserProps, id?: UniqueEntityID) {
-        super(id);
-        this._userName = userName;
-        this._email = email;
-        this._password = password || null;
+    constructor(props: IUserProps, id?: UniqueEntityID) {
+        super(props, id);
     }
 
     get userIdObjectId() {
@@ -34,15 +23,15 @@ export class User extends Entity<IUserProps> implements IAggregateRoot {
     }
 
     get userName(): string {
-        return this._userName;
+        return this.props.userName;
     }
 
     get email(): string {
-        return this._email;
+        return this.props.email;
     }
 
-    get password(): UserPassword | null {
-        return this._password;
+    get password(): UserPassword {
+        return this.props.password;
     }
 
     public static create(props: IUserProps, id?: UniqueEntityID) {

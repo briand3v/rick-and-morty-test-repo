@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { InputSimple, InputWrapper } from '../../helper/InputWrapper';
+import { InputSimple, InputWrapper } from '../../helper/wrappers/InputWrapper';
 import { inputColorsVariantsText, textColorVariants } from '../styles';
 
 

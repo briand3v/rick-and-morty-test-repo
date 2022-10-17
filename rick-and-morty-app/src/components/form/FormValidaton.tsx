@@ -1,21 +1,22 @@
-import React from 'react'
-import { ParaphTextStyled } from '../../styled/components/text'
+import React from 'react';
+import { ParaphTextStyled } from '../../styled/components/text';
+import './form.style.css';
 
-interface Props {
-    formChecksFailed: any
-    inputsValidations: any
-    login: boolean
-    validationOptions: any
+interface FromValidationsProps {
+    formChecksFailed: any;
+    inputsValidations: any;
+    login: boolean;
+    validationOptions: any;
 }
 
 interface ValidateOptions {
-    key: string
-    label: string
-    validate: boolean
-    show: boolean
+    key: string;
+    label: string;
+    validate: boolean;
+    show: boolean;
 }
 
-const FromValidations = ({ validationOptions, inputsValidations, formChecksFailed, login }: Props) => {
+const FromValidations = ({ validationOptions, inputsValidations, formChecksFailed, login }: FromValidationsProps) => {
     return (
         <div className={"group-form-checks" + (formChecksFailed && !login ? ' show' : '')}>
             {

@@ -1,17 +1,26 @@
-import { IDataMapper } from "@core/IDataMapper";
+import { IDataMapper } from "@core/infrastructure/IDataMapper";
+import { UserDTO } from "@domain/user/dtos/UserDTO";
 import { User } from "@domain/user/User";
 import { UserPassword } from "@domain/user/UserPassword";
 import { injectable } from "inversify";
 
 @injectable()
 export class UserDataMapper implements IDataMapper<User> {
-    toDomain(user: any) {
+    toDTO (user: User): UserDTO {
+        return {
+            id: user.id.toString(),
+            username: user.userName,
+            email: user.email,
+        };
+    }
+
+    toDomain(raw: any) {
         const {
             _id,
             userName,
             email,
             password,
-        } = user;
+        } = raw;
         const passwordObject = UserPassword.create({ value: password, hashed: true });
         return User.create({ userName, email, password: passwordObject }, _id);
     }
@@ -26,8 +35,7 @@ export class UserDataMapper implements IDataMapper<User> {
             }
         }
         return {
-            _id: userEntity.userIdObjectId.toValue(),
-            userName: userEntity.userName,
+            username: userEntity.userName,
             email: userEntity.email,
             password: password,
         };
