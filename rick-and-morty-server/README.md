@@ -10,5 +10,5 @@
 
 #### Command to run server:
 
-### `start:dev:db`
+### `npm run start:dev:db`
 ### `npm run dev`

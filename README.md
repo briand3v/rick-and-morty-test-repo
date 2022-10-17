@@ -35,7 +35,7 @@ In the next folders project directory, you can run:
 
 #### Command to run server:
 
-### `start:dev:db`
+### `npm run start:dev:db`
 ### `npm run dev`
 
 
